@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Section from './Section';
 import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -25,6 +26,35 @@ const Contact: React.FC = () => {
         <p className="text-light-slate mb-8">
           I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open. I'll get back to you as soon as possible!
         </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 text-left">
+          <a
+            href="mailto:luwatesemma@gmail.com"
+            className="flex items-center gap-3 p-4 rounded-md bg-light-navy hover:bg-lightest-navy transition-colors duration-300"
+            aria-label="Send email"
+          >
+            <Mail size={20} className="text-green" />
+            <span className="text-lightest-slate text-sm md:text-base">luwatesemma@gmail.com</span>
+          </a>
+          <a
+            href="tel:+251900000000"
+            className="flex items-center gap-3 p-4 rounded-md bg-light-navy hover:bg-lightest-navy transition-colors duration-300"
+            aria-label="Call phone number"
+          >
+            <Phone size={20} className="text-green" />
+            <span className="text-lightest-slate text-sm md:text-base">+251 90 000 0000</span>
+          </a>
+          <a
+            href="https://maps.google.com/?q=Addis Ababa, Ethiopia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 p-4 rounded-md bg-light-navy hover:bg-lightest-navy transition-colors duration-300"
+            aria-label="Open address in maps"
+          >
+            <MapPin size={20} className="text-green" />
+            <span className="text-lightest-slate text-sm md:text-base">Addis Ababa, Ethiopia</span>
+          </a>
+        </div>
         
         {isSubmitted ? (
             <motion.div
