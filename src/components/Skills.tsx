@@ -11,7 +11,7 @@ const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => {
       className="bg-light-navy p-4 rounded-lg flex flex-col items-center justify-center text-center gap-2 transition-transform duration-300"
       whileHover={{ y: -5, scale: 1.05 }}
     >
-      <Icon className="w-10 h-10 text-green" />
+      <Icon size={40} className="text-green" />
       <span className="text-light-slate font-medium">{name}</span>
     </motion.div>
   );

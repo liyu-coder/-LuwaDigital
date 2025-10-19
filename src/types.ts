@@ -1,8 +1,8 @@
-import { LucideIcon } from 'lucide-react';
+import type { ComponentType } from 'react';
 
 export interface Skill {
   name: string;
-  icon: LucideIcon;
+  icon: ComponentType<{ className?: string; size?: number | string }>;
 }
 
 export interface Project {
