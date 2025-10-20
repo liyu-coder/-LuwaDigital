@@ -43,11 +43,13 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-navy/80 backdrop-blur-md shadow-xl ring-1 ring-lightest-navy/50' : 'bg-navy/50 backdrop-blur-sm shadow-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy ${
+        isScrolled
+          ? 'md:bg-navy/80 md:backdrop-blur-md md:shadow-xl md:ring-1 md:ring-lightest-navy/50'
+          : 'md:bg-navy/50 md:backdrop-blur-sm md:shadow-sm'
       }`}
     >
-      <nav className="container mx-auto px-6 md:px-12 lg:px-24 py-3 md:py-4 flex justify-between items-center bg-navy/40 border border-lightest-navy/20 rounded-xl shadow-md">
+      <nav className="container mx-auto px-6 md:px-12 lg:px-24 py-3 md:py-4 flex justify-between items-center bg-navy md:bg-navy/40 border border-lightest-navy/20 rounded-xl shadow-md">
         <a href="#hero" className="text-2xl font-bold text-green font-mono z-50 transition-transform duration-200 hover:scale-105">LT</a>
         
         {/* Desktop Menu */}
@@ -94,14 +96,14 @@ const Header: React.FC = () => {
 
             {/* Slide-in Drawer */}
             <motion.aside
-              className="md:hidden fixed inset-y-0 right-0 w-72 max-w-[85%] bg-light-navy pt-24 px-6 shadow-xl ring-1 ring-lightest-navy/40 z-50"
+              className="md:hidden fixed inset-y-0 right-0 w-72 max-w-[85%] bg-light-navy pt-24 pb-8 px-0 shadow-xl ring-1 ring-lightest-navy/40 z-50 rounded-l-xl overflow-y-auto"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
               <motion.ul
-                className="flex flex-col space-y-6"
+                className="flex flex-col divide-y divide-lightest-navy/20"
                 variants={mobileMenuVariants}
                 initial="hidden"
                 animate="visible"
@@ -112,21 +114,23 @@ const Header: React.FC = () => {
                     <a
                       href={link.href}
                       onClick={toggleMenu}
-                      className="block text-xl text-lightest-slate hover:text-green transition-colors duration-300"
+                      className="block px-6 py-4 text-lg text-lightest-slate hover:text-green hover:bg-navy/30 transition-colors duration-300"
                     >
                       {link.name}
                     </a>
                   </motion.li>
                 ))}
                 <motion.li variants={mobileLinkVariants}>
-                  <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block mt-4 px-6 py-3 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300 text-lg text-center"
-                  >
-                    Resume
-                  </a>
+                  <div className="px-6 py-4">
+                    <a
+                      href="/resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-6 py-3 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300 text-lg text-center"
+                    >
+                      Resume
+                    </a>
+                  </div>
                 </motion.li>
               </motion.ul>
             </motion.aside>
