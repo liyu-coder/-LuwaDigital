@@ -2,7 +2,7 @@ import React from 'react';
 import { Github, Linkedin } from 'lucide-react';
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, url: 'https://github.com' },
+  { name: 'GitHub', icon: Github, url: 'https://github.com/liyu-coder' },
   { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com' },
 ];
 
