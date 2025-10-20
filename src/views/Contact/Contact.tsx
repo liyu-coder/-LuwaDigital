@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Section from './Section';
+import Section from '@components/layout/Section';
 import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
 
