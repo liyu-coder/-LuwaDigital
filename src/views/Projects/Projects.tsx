@@ -1,7 +1,7 @@
 import React from 'react';
-import Section from './Section';
-import { PROJECTS } from '../constants';
-import ProjectCard from './ProjectCard';
+import Section from '@components/layout/Section';
+import { PROJECTS } from '@constants';
+import ProjectCard from '@components/ProjectCard';
 
 const Projects: React.FC = () => {
   return (
