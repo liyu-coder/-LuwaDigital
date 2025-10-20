@@ -1,7 +1,7 @@
 import React from 'react';
-import Section from './Section';
-import { EXPERIENCE } from '../constants';
-import type { ExperienceItem } from '../types';
+import Section from '@components/layout/Section';
+import { EXPERIENCE } from '@constants';
+import type { ExperienceItem } from '@models';
 import { ChevronRight } from 'lucide-react';
 
 const ExperienceCard: React.FC<{ item: ExperienceItem }> = ({ item }) => (

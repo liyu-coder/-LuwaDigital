@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from './Section';
-import { SKILLS } from '../constants';
+import Section from '@components/layout/Section';
+import { SKILLS } from '@constants';
 
 const Resume: React.FC = () => {
   return (

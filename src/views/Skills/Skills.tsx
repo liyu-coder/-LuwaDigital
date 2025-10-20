@@ -1,7 +1,7 @@
 import React from 'react';
-import Section from './Section';
-import { SKILLS } from '../constants';
-import type { Skill } from '../types';
+import Section from '@components/layout/Section';
+import { SKILLS } from '@constants';
+import type { Skill } from '@models';
 import { motion } from 'framer-motion';
 
 const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => {
