@@ -1,5 +1,5 @@
 import type { Skill, Project, ExperienceItem } from './types';
-import { Code, Server, Database, Cloud, TabletSmartphone, Bot, GitBranch, Terminal } from 'lucide-react';
+import { SiReact, SiTypescript, SiNodedotjs, SiTailwindcss, SiPostgresql, SiMongodb, SiDocker, SiAmazon, SiGraphql, SiGit, SiGithubactions } from 'react-icons/si';
 import ecom from '@/e-com.jpg';
 import miki from '@/mikita.png';
 import tsi from '@/tsidu.jpg';
@@ -7,18 +7,18 @@ import chat from '@/chatapp.png';
 
 
 export const SKILLS: Skill[] = [
-  { name: 'React', icon: Code },
-  { name: 'TypeScript', icon: Code },
-  { name: 'Node.js', icon: Server },
-  { name: 'Tailwind CSS', icon: Code },
-  { name: 'PostgreSQL', icon: Database },
-  { name: 'MongoDB', icon: Database },
-  { name: 'Docker', icon: Bot },
-  { name: 'AWS', icon: Cloud },
-  { name: 'React Native', icon: TabletSmartphone },
-  { name: 'GraphQL', icon: Server },
-  { name: 'Git', icon: GitBranch },
-  { name: 'CI/CD', icon: Terminal },
+  { name: 'React', icon: SiReact },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'Tailwind CSS', icon: SiTailwindcss },
+  { name: 'PostgreSQL', icon: SiPostgresql },
+  { name: 'MongoDB', icon: SiMongodb },
+  { name: 'Docker', icon: SiDocker },
+  { name: 'AWS', icon: SiAmazon },
+  { name: 'React Native', icon: SiReact },
+  { name: 'GraphQL', icon: SiGraphql },
+  { name: 'Git', icon: SiGit },
+  { name: 'CI/CD', icon: SiGithubactions },
 ];
 
 export const PROJECTS: Project[] = [
