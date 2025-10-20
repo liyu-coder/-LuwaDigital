@@ -21,7 +21,7 @@ const Section: React.FC<SectionProps> = ({ id, title, children }) => {
         <h2 className="text-2xl md:text-3xl font-bold text-lightest-slate mr-4">
           <span className="text-green font-mono text-xl md:text-2xl">#</span> {title}
         </h2>
-        <div className="w-full h-[1px] bg-lightest-navy"></div>
+        <div className="hidden sm:block w-full h-[1px] bg-lightest-navy"></div>
       </div>
       {children}
     </motion.section>
