@@ -87,7 +87,7 @@ const Header: React.FC = () => {
           <>
             {/* Backdrop */}
             <motion.div
-              className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+              className="md:hidden fixed inset-x-0 top-16 bottom-0 bg-black/60 backdrop-blur-sm z-30"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -96,10 +96,10 @@ const Header: React.FC = () => {
 
             {/* Slide-in Drawer */}
             <motion.aside
-              className="md:hidden fixed inset-y-0 right-0 w-72 max-w-[85%] bg-light-navy pt-24 pb-8 px-0 shadow-xl ring-1 ring-lightest-navy/40 z-50 rounded-l-xl overflow-y-auto"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+              className="md:hidden fixed inset-x-0 top-16 bottom-0 w-screen max-w-none bg-light-navy pt-6 pb-8 px-0 shadow-xl ring-1 ring-lightest-navy/40 z-40 overflow-y-auto"
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
               <motion.ul
