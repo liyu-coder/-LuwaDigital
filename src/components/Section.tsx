@@ -11,7 +11,7 @@ const Section: React.FC<SectionProps> = ({ id, title, children }) => {
   return (
     <motion.section
       id={id}
-      className="py-12 lg:py-20"
+      className="py-12 lg:py-20 scroll-mt-24 md:scroll-mt-28"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}

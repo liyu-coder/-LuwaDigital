@@ -24,6 +24,13 @@ const Header: React.FC = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const mobileMenuVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1 } },
@@ -61,7 +68,12 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden z-50">
-          <button onClick={toggleMenu} aria-label="Toggle menu">
+          <button
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            className="p-2 rounded-md border border-green/40 text-green hover:bg-green/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-green/40"
+          >
             {isOpen ? <X className="text-green" /> : <Menu className="text-green" />}
           </button>
         </div>
@@ -70,33 +82,55 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 bg-navy/95 backdrop-blur-sm pt-24"
-          >
-            <motion.ul
-              className="flex flex-col items-center justify-center h-full space-y-8"
-              variants={mobileMenuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={toggleMenu}
+            />
+
+            {/* Slide-in Drawer */}
+            <motion.aside
+              className="md:hidden fixed inset-y-0 right-0 w-72 max-w-[85%] bg-light-navy pt-24 px-6 shadow-xl ring-1 ring-lightest-navy/40 z-50"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
-              {navLinks.map((link) => (
-                <motion.li key={link.name} variants={mobileLinkVariants}>
-                  <a href={link.href} onClick={toggleMenu} className="text-2xl text-lightest-slate hover:text-green transition-colors duration-300">
-                    {link.name}
+              <motion.ul
+                className="flex flex-col space-y-6"
+                variants={mobileMenuVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+              >
+                {navLinks.map((link) => (
+                  <motion.li key={link.name} variants={mobileLinkVariants}>
+                    <a
+                      href={link.href}
+                      onClick={toggleMenu}
+                      className="block text-xl text-lightest-slate hover:text-green transition-colors duration-300"
+                    >
+                      {link.name}
+                    </a>
+                  </motion.li>
+                ))}
+                <motion.li variants={mobileLinkVariants}>
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mt-4 px-6 py-3 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300 text-lg text-center"
+                  >
+                    Resume
                   </a>
                 </motion.li>
-              ))}
-              <motion.li variants={mobileLinkVariants}>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="mt-8 px-6 py-3 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300 text-lg">
-                  Resume
-                </a>
-              </motion.li>
-            </motion.ul>
-          </motion.div>
+              </motion.ul>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </header>
