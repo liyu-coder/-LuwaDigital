@@ -62,8 +62,8 @@ const Header: React.FC = () => {
             </li>
           ))}
           <li>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-green/40 focus-visible:ring-offset-2 focus-visible:ring-offset-green/10">
-              Resume
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" download className="px-4 py-2 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-green/40 focus-visible:ring-offset-2 focus-visible:ring-offset-green/10">
+              Download CV
             </a>
           </li>
         </ul>
