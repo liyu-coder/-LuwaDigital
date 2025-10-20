@@ -15,6 +15,7 @@ const Resume: React.FC = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            download
             className="inline-flex items-center justify-center px-6 py-3 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300"
           >
             Download Resume
