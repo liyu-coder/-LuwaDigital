@@ -134,10 +134,13 @@ const Hero: React.FC = () => {
           className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
         >
           <a
-            href="#projects"
+            href="/Luwa_Tesemma_FullStack_Developer_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
             className="flex items-center justify-center gap-2 px-6 py-3 bg-green text-navy font-semibold rounded-md hover:bg-green/80 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/40"
           >
-            View My Work <ArrowDown size={20} />
+            Download Resume <ArrowDown size={20} />
           </a>
           <a
             href="#contact"
