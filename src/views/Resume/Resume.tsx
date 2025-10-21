@@ -12,7 +12,7 @@ const Resume: React.FC = () => {
             Full-stack developer focused on building accessible, user-centered products with modern web technologies.
           </p>
           <a
-            href="/resume.pdf"
+            href="/Luwa_Tesemma_FullStack_Developer_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download

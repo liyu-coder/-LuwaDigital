@@ -6,7 +6,6 @@ import Skills from '@views/Skills/Skills';
 import Projects from '@views/Projects/Projects';
 import Experience from '@views/Experience/Experience';
 import Contact from '@views/Contact/Contact';
-import Resume from '@views/Resume/Resume';
 import Footer from '@components/layout/Footer';
 
 const App: React.FC = () => {
@@ -19,7 +18,6 @@ const App: React.FC = () => {
         <Experience />
         <Skills />
         <Projects />
-        <Resume />
         <Contact />
       </main>
       <Footer />

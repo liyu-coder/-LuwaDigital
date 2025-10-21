@@ -61,11 +61,6 @@ const Header: React.FC = () => {
               </a>
             </li>
           ))}
-          <li>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" download className="px-4 py-2 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-green/40 focus-visible:ring-offset-2 focus-visible:ring-offset-green/10">
-              Download CV
-            </a>
-          </li>
         </ul>
 
         {/* Mobile Menu Button */}
@@ -120,18 +115,6 @@ const Header: React.FC = () => {
                     </a>
                   </motion.li>
                 ))}
-                <motion.li variants={mobileLinkVariants}>
-                  <div className="px-6 py-4">
-                    <a
-                      href="/resume.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block px-6 py-3 border border-green text-green rounded-md hover:bg-green/10 transition-colors duration-300 text-lg text-center"
-                    >
-                      Resume
-                    </a>
-                  </div>
-                </motion.li>
               </motion.ul>
             </motion.aside>
           </>
