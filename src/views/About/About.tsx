@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from '@components/layout/Section';
-import myproflie from '@/image.png';
+import myproflie from '@/canvas.png';
 
 const About: React.FC = () => {
   return (
