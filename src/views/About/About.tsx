@@ -21,7 +21,7 @@ I focus on writing smart code, designing intuitive interfaces, and delivering pr
         <div className="md:col-span-2 flex justify-center items-start">
             <div className="relative w-72 h-72 md:w-96 md:h-96 group">
                 <div className="absolute inset-0 bg-green rounded-lg transform transition-transform duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
-                <img src={ myproflie } alt="Luwa Tesemma" className="relative w-full h-full object-cover rounded-lg filter grayscale group-hover:grayscale-0 transition-all duration-300"/>
+                <img src={ myproflie } alt="Luwa Tesemma" className="relative w-full h-full object-contain rounded-lg transition-all duration-300"/>
             </div>
         </div>
       </div>
