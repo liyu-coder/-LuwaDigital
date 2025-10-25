@@ -6,25 +6,51 @@ import { Mail, Phone } from 'lucide-react';
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the form data to a backend service
-    // e.g., via fetch() or axios
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
+    setError(null);
+    setLoading(true);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: 'New portfolio contact',
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok && (data.success || data.status === 200)) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setError('Failed to send. Please try again later.');
+      }
+    } catch (err) {
+      setError('Failed to send. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <Section id="contact" title="Get In Touch">
       <div className="max-w-xl mx-auto text-center">
         <p className="text-light-slate mb-8">
-          I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open. I'll get back to you as soon as possible!
+          I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hello , my inbox is always open. I'll get back to you as soon as possible!
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left">
@@ -91,9 +117,10 @@ const Contact: React.FC = () => {
               </div>
               <button
                 type="submit"
-                className="px-8 py-3 w-full border border-green text-green font-semibold rounded-md hover:bg-green/10 transition-colors duration-300"
+                disabled={loading}
+                className="px-8 py-3 w-full border border-green text-green font-semibold rounded-md hover:bg-green/10 transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Send Message
+                {loading ? 'Sending…' : 'Send Message'}
               </button>
             </form>
         )}
